@@ -3,10 +3,24 @@ module.exports = app => {
   const DetailControllers = {}
 
   DetailControllers.list = async ctx => {
-    return ctx.body = {
-      status: 1001,
-      msg: '成功'
+    try{
+      const res = await model.find()
+      console.log(111, ctx.query)
+      ctx.body = {
+        code: 1001,
+        data:{
+          list:res
+        },
+        msg: '成功'
+      }
+    } catch (err) {
+      ctx.body = {
+        code: 1002,
+        msg: '失败'
+      }
     }
+
+
   }
   return DetailControllers
 }
