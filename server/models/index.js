@@ -1,5 +1,7 @@
-const detail = require('./detail')
+const product = require('./product')
+const student = require('./student')
 
 module.exports = {
-  detail
+  product,
+  student
 }
