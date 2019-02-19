@@ -27,4 +27,4 @@ const studentSchema = new Schema({
 const Student = mongoose.model('Student', studentSchema)
 module.exports = Student
 
-/*db.students.insert({"name": "张三", "school": "南京大学", "specialty": "电子信息工程", "stu_number": "20150902033", "phone": "18856448989"})*/
+/*db.students.insert({"name": "李四", "school": "南京大学", "specialty": "电子信息工程", "stu_number": "20150902034", "phone": "18856448989"})*/
