@@ -1,5 +1,8 @@
 import React from 'react';
 import './NavBarBottom.scss';
+import { Router, Route, Link, Redirect} from 'react-router-dom';
+import IndexShow from '../../pages/IndexShow/IndexShow';
+import UserInformation from '../../pages/UserInformation/UserInformation';
 
 class NavBarBottom extends React.Component {
     constructor (props) {
@@ -14,15 +17,20 @@ class NavBarBottom extends React.Component {
     render() {
         let ListHtml = this.state.navList.map((item, index) => {
             return (
-                <div key={index} onClick={() => {this.changeBar(index)}} className={this.state.judColor === index ? 'click_color' : ''}>
-                    <i className={`iconfont icon-${this.state.navImg[index]}`}></i>
-                    <span>{item}</span>
-                </div>
+                // <Link to="/1" key={index} >
+                    <div onClick={() => {this.changeBar(index)}} className={this.state.judColor === index ? 'click_color' : ''}>
+                        <i className={`iconfont icon-${this.state.navImg[index]}`}></i>
+                        <span>{item}</span>
+                    </div>
+                // </Link>
+                
             )
         })
         return (
             <div className="nav">
               {ListHtml}
+              <Link to='/22'><span>1111</span></Link>
+              
             </div>
         )
     }
