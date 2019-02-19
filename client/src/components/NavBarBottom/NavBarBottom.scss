@@ -1,0 +1,22 @@
+.nav {
+    position: fixed;
+    bottom: 0;
+    height: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: .2rem;
+    justify-content: space-around;
+    padding-top: .3rem;
+    color: #999999;
+    width: 100%;
+
+    span {
+        display: block;
+        line-height: .5rem;
+        flex-grow: 2;
+        border-bottom: #fff 0.1rem solid;
+    }
+    .click_color {
+        color: orange;
+    }
+}   

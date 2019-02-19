@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+
+    <link type="text/css" rel="stylesheet" href="./iconfont/iconfont.css"/>
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta
       name="viewport"
@@ -26,6 +28,16 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+        /* eslint-disable */
+    function rem() {
+        var w = Math.min(document.documentElement.getBoundingClientRect().width, 500);
+        document.getElementsByTagName('html')[0].style.fontSize = w * 100 / 750 + 'px';
+    }
+    rem();
+    window.onresize = function(){rem();};
+    </script>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.

@@ -1,0 +1,40 @@
+
+.list_all {
+    height: 3rem;
+    display: flex;
+    margin: 10px;
+    img {
+        width: 2.5rem;
+        height:2.5rem;
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        .list_desc {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: .1rem 0 0 .3rem;
+            span:nth-child(1) {
+                font-size: .6rem;
+            }
+            span:nth-child(2) {
+                font-size: .4rem;
+                color: red;
+            }
+            span:nth-child(3) {
+                padding-top: .4rem;
+                font-size: .3rem;
+                color: #999999;
+                text-decoration: line-through;
+            }
+        }
+        p {
+            font-size: .4rem;
+            padding-left: .3rem;
+            align-self: flex-start;
+            color: #535252;
+        }
+    }
+    
+}

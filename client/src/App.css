@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -31,3 +32,13 @@
     transform: rotate(360deg);
   }
 }
+
+.nav_bottom {
+    position: fixed;
+    bottom:0;
+    left: 0;
+    top: 1rem;
+    color: red;
+}
+
+
