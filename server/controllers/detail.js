@@ -6,20 +6,16 @@ module.exports = app => {
     code: 1002,
     msg: '数据库异常'
   }
-
   DetailControllers.detailAll = async ctx => {
     try{
       const res = await stuModel.aggregate([
         {
           $lookup: {
             from: "products",
-            localField:"stu_number",
-            foreignField:"stu_number",
+            localField:"student_id",
+            foreignField:"student_id",
             as:"pro_list"
           }
-        },
-        {
-          $project: { "pro_list.name": 0, "pro_list.stu_number": 0}
         }
       ])
       ctx.body = {
@@ -59,16 +55,14 @@ module.exports = app => {
   }
   DetailControllers.addProduct = async ctx => {
     try {
-      // console.log(111, ctx);
-      // console.log(2222, ctx.request.body);
       let gettype = Object.prototype.toString
-      const {img, stu_number, name, pro_name, desc, puy_date, price, origin_price, pro_num, pro_type} = ctx.request.body
-      if (!(img && stu_number && name && pro_name && desc && puy_date && price && origin_price && pro_num && pro_type)){
-        if (gettype.call(img).indexOf('Array') === -1 || gettype.call(stu_number).indexOf('String') === -1 ||
-            gettype.call(name).indexOf('String') === -1 || gettype.call(pro_name).indexOf('String') === -1 ||
-            gettype.call(desc).indexOf('String') === -1 || gettype.call(puy_date).indexOf('Number') === -1 ||
-            gettype.call(price).indexOf('Number') === -1 || gettype.call(origin_price).indexOf('Number') === -1 ||
-            gettype.call(pro_num).indexOf('Number') === -1 || gettype.call(pro_type).indexOf('String') === -1) {
+      const {student_id, img, pro_name, desc, puy_date, price, origin_price, pro_num, pro_type} = ctx.request.body
+      if (!(student_id && img && pro_name && desc && puy_date && price && origin_price && pro_num && pro_type )){
+        if (gettype.call(student_id).indexOf('Number') === -1 || gettype.call(img).indexOf('Array') === -1 ||
+            gettype.call(pro_name).indexOf('String') === -1 || gettype.call(desc).indexOf('String') === -1 ||
+            gettype.call(puy_date).indexOf('Number') === -1 || gettype.call(price).indexOf('Number') === -1 ||
+            gettype.call(origin_price).indexOf('Number') === -1 || gettype.call(pro_num).indexOf('Number') === -1 ||
+            gettype.call(pro_type).indexOf('String') === -1) {
           ctx.body = {
             code: 10003,
             msg: "参数类型错误"
@@ -81,9 +75,8 @@ module.exports = app => {
         }
       }
       const proCount = await proModel.find().sort({"pro_id": -1}).limit(1)
-      // console.log(1111111, proCount[0].pro_id)
       let pro_id = proCount[0].pro_id ? proCount[0].pro_id + 1 : 1
-      const res = await proModel.create({pro_id, img, stu_number, name, pro_name, desc, puy_date, price, origin_price, pro_num, status: 0, pro_type})
+      const res = await proModel.create({pro_id, img, student_id, pro_name, desc, puy_date, price, origin_price, pro_num, status: 0, pro_type})
       if (pro_id){
         ctx.body = {
           code: 1001,
@@ -122,8 +115,6 @@ module.exports = app => {
         data:{},
         msg: '没有该条数据'
       }
-      console.log(555, res)
-
     } catch (err) {
       ctx.body = dbErr
     }
