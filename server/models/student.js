@@ -27,17 +27,20 @@ const studentSchema = new Schema({
     required: true
   },
   qq_num: {  // qq号
-    type: String
+    type: String,
+    default: ''
   },
   avatar: { // 头像
     type: String,
     default: 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1550643511&di=093c5818a5dee7fe90d3afa824f7dcf9&src=http://b-ssl.duitang.com/uploads/item/201704/27/20170427155254_Kctx8.jpeg'
   },
   birth_date: { // 出生日期
-    type: Number
+    type: Number,
+    default: 0
   },
   signature: { // 签名
-    type: String
+    type: String,
+    default: ''
   }
 
 })
