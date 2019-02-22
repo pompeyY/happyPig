@@ -17,13 +17,15 @@
 | :---: | :------: | :--------: | :---:|
 | img | array | 是 | 封面图 |
 | stu_number | string | 是 | 学号 |
-| student_id | int | 是 | 学生id |
+| student_id | int | 否 | 学生id |
 | desc | string | 是 | 描述 |
 | puy_date | int | 是 | 购买日期 传时间戳 |
 | price | int | 是 | 价格， 按分传 |
 | origin_price | int | 是 | 原价， 按分传 |
-| pro_num | int | 是 | 产品数量 需大于1 |
+| pro_num | int | 是 | 产品数量 需大于等于1 |
 | pro_type | string | 是 | 产品种类 |
+| status | int | 否 | 产品状态 0为有货，1为已售完
+| pro_name | string | 是 | 产品名称
 
 <br/>
 

@@ -1,0 +1,30 @@
+.user {
+    .no_login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50%;
+        i {
+            font-size: 1rem;
+        }
+        p {
+            font-size: .5rem;
+            padding-top: .3rem;
+        }
+    }
+    
+    .no_display {
+        display: none;
+    }
+
+    .yes_login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1rem;
+        font-size: .5rem;
+        .desc {
+            padding: .3rem 0 .5rem 0;
+        }
+    }
+}

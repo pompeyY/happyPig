@@ -1,0 +1,39 @@
+
+
+.add_pro {
+    padding: 0 .4rem 0 .4rem;
+    vertical-align: center;
+    .ant-select-selection__rendered {
+        width: 2rem;
+    }
+
+    .add_item .item {
+        line-height: .5rem;
+        // padding-top: .2rem;
+        margin-top: .4rem
+    }
+
+    .ant-upload-list-picture-card {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .ant-upload-list-picture-card .ant-upload-list-item {
+        width: 2rem;
+        height: 2rem;
+    }
+    .ant-upload-list {
+        width: 100%;
+    }
+    .ant-upload-select-picture-card i {
+        font-size: 28px;
+        color: #999;
+      }
+      
+      .btn_sure {
+          text-align: center;
+          margin-top: .5rem;
+      }
+
+}

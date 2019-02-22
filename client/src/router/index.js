@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {Router, Route, Link, BrowserRouter, Redirect, Switch} from 'react-router-dom';
 import asyncComponent from './asyncComponent';
-import index from '../pages/IndexShow/IndexShow';
-import userInformation from '../pages/UserInformation/UserInformation';
-import indexShow from '../pages/IndexShow/IndexShow';
-// const index = asyncComponent(() => import("../pages/Index/Index"));
-// const userInformation = asyncComponent(() => import("../pages/UserInformation/UserInformation"));
+const Home = asyncComponent(() => import('../pages/Index/Index'));
+const AddProduct = asyncComponent(() => import('../pages/AddProduct/AddProduct'));
+const PersonalData = asyncComponent(() => import('../pages/PersonalData/PersonalData'));
+const SoldOut = asyncComponent(() => import('../pages/SoldOut/SoldOut'));
+const Unsold = asyncComponent(() => import('../pages/Unsold/Unsold'));
 
 
 
@@ -15,17 +15,12 @@ export default class RouteConfig extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          {/* <Route path="/profile" exact component= {profile}/>
-          <Route path="/login" component= {login}/>
-          <Route path="/info"  component= {info}/>
-          <Route path="/msite" component= {msite}/>
-          <Route path="/setuser"  component= {setUser}/>
-          <Route path="/shop/:id"  component= {shop}/>
-          <Route path="/food/:geohash/:id/:title"  component= {food}/>
-          <Route path="/technology"  component= {technology}/> */}
-          {/* <Redirect exact from='/' to='/profile'/> */}
-          <Route path="/1" component= {indexShow}/>
-          <Route path="/22" component = {userInformation}/>
+          <Route path='/home' component={Home}></Route>
+          <Route path="/addProduct" component= {AddProduct}/>
+          <Route path='/personalData' component= {PersonalData}></Route>
+          <Route path='/soldOut' component= {SoldOut}></Route>
+          <Route path='/unsold' component= {Unsold}></Route>
+          <Redirect to='/home/index' ></Redirect>
         </Switch>
       </BrowserRouter>
     )
