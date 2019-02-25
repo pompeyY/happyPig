@@ -17,7 +17,8 @@
 | :---: | :------: | :--------: | :---:|
 | img | array | 是 | 封面图 |
 | stu_number | string | 是 | 学号 |
-| student_id | int | 否 | 学生id |
+| student_id | int | 是 | 学生id |
+| pro_id | int | 否 | 商品id |
 | desc | string | 是 | 描述 |
 | puy_date | int | 是 | 购买日期 传时间戳 |
 | price | int | 是 | 价格， 按分传 |

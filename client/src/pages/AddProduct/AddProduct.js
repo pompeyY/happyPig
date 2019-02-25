@@ -1,7 +1,8 @@
 import React from 'react';
-import {Icon, Upload, Modal, Input, InputNumber, DatePicker, Select, Button} from 'antd';
+import {Icon, Upload, Modal, Input, InputNumber, DatePicker, Select, Button, message} from 'antd';
 import NavBarTop from '../../components/NavBarTop/NavBarTop';
 import './AddProduct.scss';
+import UpUserInformation from '../../actions/upInformation/UpUserInformation';
 
 class AddProduct extends React.Component {
     constructor (props) {
@@ -9,10 +10,10 @@ class AddProduct extends React.Component {
         this.state = {
             previewVisible: false,
             previewImage: '',
-            price: 1,
-            origin_price: 1,
+            price: '',
+            origin_price: '',
             pro_num: 1,
-            pro_type: 1,
+            pro_type: '',
             pro_name: '',
             desc: '',
             fileList: [],
@@ -59,11 +60,12 @@ class AddProduct extends React.Component {
                 <div className="add_item">
                     <div className="item">商品名称：<Input placeholder="请输入商品名称"  value={this.state.pro_name} onChange={(e) => {this.setState({pro_name: e.target.value})}}/></div>
                     <div className="item">商品描述：<TextArea placeholder="请输入商品描述" autosize={{ minRows: 2, maxRows: 6 }}  value={this.state.desc} onChange={(e) => {this.setState({desc: e.target.value})}}/></div>
-                    <div className="item">商品原价：<InputNumber decimalSeparator="2" value={this.state.origin_price} onChange={(value) => {this.setState({origin_price: value})}} min={1}/></div>
-                    <div className="item">商品现价：<InputNumber min={1}  decimalSeparator="2" value={this.state.price} onChange={(value) => {this.setState({price: value})}}/></div>
-                    <div className="item">购买日期：<DatePicker   value={this.state.puy_date} onChange={(date, dateString) => {this.setState({puy_date: date}); console.log(dateString, 111111111)}}/></div>
+                    <div className="item">商品数量：<InputNumber min={1} value={this.state.pro_num} onChange={(value) => {this.setState({pro_num: value})}}/></div>
+                    <div className="item">商品原价：<InputNumber decimalSeparator={'2'} value={this.state.origin_price} onChange={(value) => {this.setState({origin_price: value})}} min={1}/></div>
+                    <div className="item">商品现价：<InputNumber min={1}  decimalSeparator={'2'} value={this.state.price} onChange={(value) => {this.setState({price: value})}}/></div>
+                    <div className="item">购买日期：<DatePicker  value={this.state.puy_date} onChange={(date, dateString) => {this.setState({puy_date: date}); console.log(dateString, 111111111)}}/></div>
                     <div className="item">产品种类：
-                        <Select>{selectHtml}</Select>
+                        <Select  value={this.state.pro_type} onChange={(value) => {this.setState({pro_type: value})}}>{selectHtml}</Select>
                     </div>
                 </div>
                 <div  className="btn_sure">
@@ -84,8 +86,27 @@ class AddProduct extends React.Component {
         this.setState({ fileList})
         }
 
-    submitAddProduct () {
-        console.log(11111);
+    async submitAddProduct () {
+        const param = {
+            img: [ 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2249893882,1165836821&fm=27&gp=0.jpg','https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1986179278,1118313821&fm=27&gp=0.jpg','https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1843568763,107432329&fm=27&gp=0.jpg',
+            ],
+            stu_number: '20150902033',
+            student_id: 1000,
+            desc: this.state.desc,
+            puy_date: new Date(this.state.puy_date).getTime(),
+            price: this.state.price,
+            origin_price: this.state.origin_price,
+            pro_num: this.state.pro_num,
+            pro_type: this.state.pro_type,
+            pro_name: this.state.pro_name,
+        }
+        const res = await UpUserInformation.upAddProduct(param)
+        console.log(1001 === res.data.code) 
+        if (1001 === res.code) {
+            console.log(3333)
+            message.success('添加成功！');
+            
+        }
     }
 }
 

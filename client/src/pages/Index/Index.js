@@ -5,7 +5,6 @@ import './Index.scss';
 import '../../assets/css/mixin.scss';
 import '../../assets/css/app.scss';
 import '../../assets/iconfont/iconfont.css';
-import 'antd/dist/antd.css';
 
 import UserInformation from '../../pages/UserInformation/UserInformation';
 import NavBarBottom from '../../components/NavBarBottom/NavBarBottom';
