@@ -1,5 +1,21 @@
 const Koa = require('koa');
 const app = new Koa()
+const session = require('koa-session')
+
+app.keys = ['happyPig@pompeyy&grace'];
+
+const CONFIG = {
+  key: 'skey',
+  maxAge: 86400000,
+  autoCommit: true,
+  overwrite: true,
+  httpOnly: true,
+  signed: true,
+  rolling: false,
+  renew: false,
+}
+
+app.use(session(CONFIG, app));
 
 app.models = require('./models')
 app.controllers = require('./controllers')(app)
