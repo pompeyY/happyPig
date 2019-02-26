@@ -54,7 +54,7 @@ class AddProduct extends React.Component {
                    {fileList.length >= 3 ? null : uploadButton}
                    </Upload>
                     <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-                    <img alt="example" style={{ width: '100%' }} src={previewImage} />
+                    <img alt="example" style={{ width: '100%' }} src={previewImage}/>
                     </Modal>
                 </div>
                 <div className="add_item">

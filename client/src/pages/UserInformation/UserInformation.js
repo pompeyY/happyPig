@@ -8,7 +8,7 @@ class UserInformation extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showLogin: false,
+            showLogin: true,
             addList: [
                 '个人资料',
                 '添加宝贝',
@@ -30,7 +30,7 @@ class UserInformation extends React.Component {
                 <div className={`no_login ${this.state.showLogin === true ? '' : 'no_display'}`}>
                     <i className="iconfont icon-weidenglutouxiang"></i>
                     <p>立即登录</p>
-                    <p>>>>还未有账号，立即注册!</p>
+                    <p><Link to=''>>>>还未有账号，立即注册!</Link></p>
                 </div>
                 {/* 已登录 */}
                 <div className={` ${this.state.showLogin === false ? '' : 'no_display'}`}>
