@@ -13,5 +13,9 @@
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
     "mongoose": "^5.4.12"
+  },
+  "devDependencies": {
+    "koa-session": "^5.10.1",
+    "utility": "^1.15.0"
   }
 }
