@@ -242,7 +242,10 @@ module.exports = app => {
           user: email,
           uid: login.student_id,
         }
-        ctx.cookies.set('uid', login.student_id)
+        ctx.cookies.set('uid', login.student_id, {
+          maxAge: 86400000, // cookie有效时长
+          httpOnly: false,  // 是否只用于http请求中获取
+        })
         ctx.body = {
           code: 1001,
           msg: '成功'
