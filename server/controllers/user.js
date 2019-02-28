@@ -46,6 +46,41 @@ module.exports = app => {
 
 
   }
+  UserControllers.getStudentInfo = async ctx => {
+    try{
+      const student_id = +ctx.query.student_id
+      if (!student_id || gettype.call(student_id).indexOf('Number') === -1){
+        return ctx.body = {
+          code: 10003,
+          msg: '参数错误'
+        }
+      }
+      const res = await stuModel.find({student_id})
+      if (res.length === 0){
+        ctx.body = {
+          code: 10004,
+          msg: '未找到数据'
+        }
+      } else {
+        /*let _studentId = res[0].student_id
+        if (ctx.session.info.uid !== _studentId) {
+          return ctx.body = {
+            code: 1005,
+            msg: '未登录'
+          }
+        }*/
+        ctx.body = {
+          code: 1001,
+          data: res[0],
+          msg: '成功'
+        }
+      }
+    } catch (err) {
+      ctx.body = dbErr
+    }
+
+
+  }
   UserControllers.addUserInfo = async ctx => {
     try{
       const {student_id, name, school, specialty, phone, stu_number, qq_num = '', avatar = '', birth_date = 0, signature = ''} = ctx.request.body
