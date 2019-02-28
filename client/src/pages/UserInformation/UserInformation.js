@@ -3,6 +3,7 @@ import './UserInformation.scss';
 import { NavLink } from 'react-router-dom';
 import {Button, Avatar, List, Icon} from 'antd';
 import {Route, Redirect, Switch, Link} from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 class UserInformation extends React.Component {
     constructor(props) {
@@ -29,8 +30,8 @@ class UserInformation extends React.Component {
                 {/* //未登录 */}
                 <div className={`no_login ${this.state.showLogin === true ? '' : 'no_display'}`}>
                     <i className="iconfont icon-weidenglutouxiang"></i>
-                    <p>立即登录</p>
-                    <p><Link to=''>>>>还未有账号，立即注册!</Link></p>
+                    <p><Link to='/user/login'>立即登录</Link></p>
+                    <p><Link to='/user/regist'>>>>还未有账号，立即注册!</Link></p>
                 </div>
                 {/* 已登录 */}
                 <div className={` ${this.state.showLogin === false ? '' : 'no_display'}`}>
@@ -49,10 +50,13 @@ class UserInformation extends React.Component {
                           }
                     />
                 </div>
-
                 </div>
             </div>
         )
+    }
+    componentDidMount() {
+        const student_id = Cookies.get();
+        console.log(student_id)
     }
 }
 

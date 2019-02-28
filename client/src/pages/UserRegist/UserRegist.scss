@@ -1,0 +1,25 @@
+.user_regist {
+    margin: 0 .5rem;
+    .title_regist {
+        margin-top: 1.5rem;
+    }
+    .item {
+        // padding-bottom: .5rem;
+        padding-top: .3rem;
+    }
+    .btn_sure {
+        text-align: center;
+        margin-top: .5rem;
+    }
+    .btn {
+        width: 3rem;
+        margin-bottom: .5rem;
+    }
+    .alert_pass {
+        color: red;
+        text-align: center;
+    }
+    .dis {
+        display: none;
+    }
+}

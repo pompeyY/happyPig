@@ -14,5 +14,23 @@ export default {
         } catch(e) {
             console.log(e)
         }
+    },
+    async upUserRegist (param) {
+        try {
+            let url = `${Api.upUserRegist}`
+            let res = await axios.post(url, param)
+            return res
+        } catch(e) {
+            console.log(e);
+        }
+    },
+    async upUserLogin(param) {
+        try {
+            let url = `${Api.upUserLogin}`
+            let res = await axios.post(url, param)
+            return res
+        } catch (e) {
+            console.log(e)
+        }
     }
 }
